@@ -153,8 +153,10 @@ namespace SolaceRTDExcel
             try
             {
                 await OnStateChangedAsync(ConnectionState.Closing, null).ConfigureAwait(false);
-                session.Disconnect();
-                context.Dispose();
+                if (session != null)
+                    session.Disconnect();
+                if (context != null)
+                    context.Dispose();
                 await OnStateChangedAsync(ConnectionState.Closed, null).ConfigureAwait(false);
 
                 topicSubscriptions.Clear();
