@@ -61,6 +61,16 @@
     <WarningLevel>4</WarningLevel>
     <RegisterForComInterop>true</RegisterForComInterop>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>true</RegisterForComInterop>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
@@ -107,6 +117,9 @@
     <Compile Include="SolaceConnection.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="register.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="SolaceRTDExcel.dll.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -115,6 +128,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+    <None Include="unregister.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\SolaceSystems.Solclient.Messaging.10.8.0\build\net20\SolaceSystems.Solclient.Messaging.targets" Condition="Exists('..\packages\SolaceSystems.Solclient.Messaging.10.8.0\build\net20\SolaceSystems.Solclient.Messaging.targets')" />
@@ -125,6 +141,8 @@
     <Error Condition="!Exists('..\packages\SolaceSystems.Solclient.Messaging.10.8.0\build\net20\SolaceSystems.Solclient.Messaging.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SolaceSystems.Solclient.Messaging.10.8.0\build\net20\SolaceSystems.Solclient.Messaging.targets'))" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>%25SystemRoot%25\Microsoft.Net\Framework\v4.0.30319\RegAsm.exe $(ProjectDir)bin\x86\Debug\SolaceRTDExcel.dll /tlb /codebase</PostBuildEvent>
+    <PostBuildEvent>%25SystemRoot%25\Microsoft.Net\Framework\v4.0.30319\RegAsm.exe $(ProjectDir)bin\x86\Release\SolaceRTDExcel.dll /tlb /codebase
+copy $(SolutionDir)README.md $(ProjectDir)$(OutDir)
+copy $(SolutionDir)LICENSE $(ProjectDir)$(OutDir)</PostBuildEvent>
   </PropertyGroup>
 </Project>

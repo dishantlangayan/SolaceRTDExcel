@@ -5,6 +5,13 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolaceRTDExcel", "SolaceRTDExcel\SolaceRTDExcel.csproj", "{930BFDA2-C2DA-42DC-BE83-BB4E960875B0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{507450C2-BC1C-43AD-94B7-C30B13E4B6AF}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,8 +32,8 @@ Global
 		{930BFDA2-C2DA-42DC-BE83-BB4E960875B0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{930BFDA2-C2DA-42DC-BE83-BB4E960875B0}.Release|x64.ActiveCfg = Release|Any CPU
 		{930BFDA2-C2DA-42DC-BE83-BB4E960875B0}.Release|x64.Build.0 = Release|Any CPU
-		{930BFDA2-C2DA-42DC-BE83-BB4E960875B0}.Release|x86.ActiveCfg = Release|Any CPU
-		{930BFDA2-C2DA-42DC-BE83-BB4E960875B0}.Release|x86.Build.0 = Release|Any CPU
+		{930BFDA2-C2DA-42DC-BE83-BB4E960875B0}.Release|x86.ActiveCfg = Release|x86
+		{930BFDA2-C2DA-42DC-BE83-BB4E960875B0}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
